@@ -1,0 +1,32 @@
+package p4ej;
+
+import java.util.Scanner;
+
+public class p4ej1 {
+
+	public static void main(String[] args) {
+		
+		Scanner read=new Scanner(System.in);
+		float n[]= new float[10], z; int v=0, y;
+		
+		System.out.println("Ingrese los números que quiere ordenar de mayor a manor:");
+		for(;v<10;v++) { //Como "v" está previamente definido e inicializado se puede dejar en blanco la casilla
+			n[v]=read.nextFloat();
+		}
+		//Sin embargo si se vuelve a utilizar la variable entonces hay que volverla a inicializar porque guarda el último valor que recibió (9)
+		for(v=0;v<9;v++){ //Se pone 9 para evitar que se salga del rango del arreglo de 10 números
+			for (y=0; y<9 ;y++) { //Ciclo anidado para poder acomodar de mayo a menor los números dados por el usuario (ciclo burbuja)
+				if(n[y]<n[y+1]) {
+					z=n[y];
+					n[y]=n[y+1];
+					n[y+1]=z;
+				}
+			}
+		}
+		//Mismo caso para este for
+		for(v=0;v<10;v++) {
+			System.out.print(n[v] + " ");
+		}
+		read.close();
+	}
+}
