@@ -1,0 +1,28 @@
+package p4ej;
+
+import java.util.Scanner;
+
+public class p4ej2 {
+
+	public static void main(String[] args) {
+		Scanner read=new Scanner(System.in);
+		double cal[]=new double [20]; int n;
+		
+		System.out.println("Ingrese las 20 calificaciones en un rango de 0 a 10");
+		for(n=0;n<20;n++) {
+			cal[n]=read.nextDouble();
+			if(cal[n]<0 || cal[n]>10) {
+				System.out.println("Calificación inválida");
+				return; //Deja de correr el programa si se ingresa una calificacón inválida
+			}
+		}
+		read.close();
+		P4ej2_1 calificacion=new P4ej2_1(); //Se hace una instancia de una variable para acceder a los métodos de la segunda clase
+		calificacion.calificacion(cal);
+		calificacion.promedio();
+		calificacion.maximo();
+		calificacion.minimo();
+		calificacion.aprobado();
+		calificacion.impresion();
+	}
+}
